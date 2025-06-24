@@ -1,0 +1,19 @@
+
+Dataset Size:
+Train: 0 - Valid: 0
+
+Dataset Size:
+Train: 504 - Valid: 108
+
+Hyperparameters:
+Image Size: (256, 256)
+Batch Size: 1
+LR: 0.0001
+Epochs: 1
+Optimizer: NAdam
+Loss: weighted e_Loss
+
+Epoch: 01 | Epoch Time: 1m 40s
+	Train Loss: 0.223
+	 Val. Loss: 0.124
+
