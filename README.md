@@ -26,7 +26,7 @@ This project implements a deep learning model for aerial image segmentation, par
 ├── data.py # Dataset loading
 ├── requirements.txt # Required Python packages
 └── README.md # This file
-
+---
 ## ⚙️ Installation
 
 1. **Clone the repository**
