@@ -1,7 +1,44 @@
-# SegRExtNet: A Deep Learning-based road segmentation
+# 🛰️ Drone-Based Traffic Monitoring – RoI Extraction with SegRExt Models
+---
+## 📝 Abstract
 
-This project implements a deep learning model for aerial image segmentation, particularly focusing on roads detection using CNN-based architectures.
+> Alongside many traditional as well as novel applications, in recent years drones have been widely adopted as remote sensing platforms for road traffic monitoring in urban areas and on highways. The problem of traffic monitoring on Region of Interest (RoI) based on drone imagery is a challenging task, especially when the surveillance drone is constantly moving. In this work, two specific sub-tasks have been addressed. The goal of the first stage is to predict the RoI in drone imagery of traffic scenes using deep learning-based approaches instead of traditional image processing; in this connection, the goal of the second task is to perform vehicle detection on the selected RoI. To ensure diversity and robustness, drone images with different altitudes, positions and viewpoints have been considered. To achieve these goals, two custom aerial datasets for RoI extraction and detection were built by collecting aerial sequences from flying Unmanned Aerial Vehicles (UAV) and by transmitting them to the base station leveraging 5G technology. Two different ad-hoc deep learning-based architectures have been designed for the RoI extraction task to maximize the accuracy and inference speed, respectively, and have been evaluated on two different datasets: a custom-built dataset and a Massachusetts roads dataset. Finally, the models providing the best performance have been combined to further improve the overall results. Experimental tests show that the proposed framework represents a promising solution for drone-based road traffic monitoring in critical areas, exploiting imagery from a variety of viewing angles and altitudes.
 
+---
+
+## 🎯 Scope of This Repository
+
+This repository contains only the **RoI extraction stage** of the complete pipeline. Specifically, it includes the following two custom deep learning architectures:
+
+- **SegRExt-A**: Accuracy-optimized model
+- **SegRExt-F**: Speed-optimized (Fast) model
+
+Both models are tailored for semantic segmentation of road regions in drone-captured aerial images.
+
+---
+
+## 🖼️ Complete pipeline and SegRExt-A Model Architecture
+![resnet1](https://github.com/user-attachments/assets/ab753f95-4887-4ec9-9334-b78d2b8dd866)
+
+## 🖼️ SegRExt-F Model Architecture
+> *Figure: Complete pipeline and the SegRExt-A model with ResNet bloacks to attain higher accuracies.*
+
+![mnetv3_diagram](https://github.com/user-attachments/assets/8f7798f2-9068-418e-9b4c-25e01b4b8d7c)
+> *Figure: The SegRExt-F model uses a lightweight encoder-decoder architecture with attention blocks and skip connections for fast inference on aerial imagery.*
+
+---
+
+## 📊 Quantitative Results
+
+![segrext_model_performances](https://github.com/user-attachments/assets/0bedae0b-8d10-423c-bf78-d5cf592840bc)
+
+> Quantitative analysis of RoI extractors. *SegRExt-F achieves high frame rates while maintaining competitive segmentation performance.*
+
+## 🎨 Qualitative Analysis
+
+![segrext_model_performances_fig](https://github.com/user-attachments/assets/843c7347-a642-415f-a639-fcf40aa3b038)
+
+> Qualitative analysis of RoI extractors. 
 
 ---
 ## 📁 Project Structure
@@ -127,5 +164,21 @@ The model is evaluated on test.py using ground-truth masks.
 
 The entire code supports CUDA if a GPU is available.
 
+## 📚 Citation
+Please cite our work if you use it for your research and find it useful.
+
+@ARTICLE{9955239,
+  author={Bisio, Igor and Garibotto, Chiara and Haleem, Halar and Lavagetto, Fabio and Sciarrone, Andrea},
+  journal={IEEE Internet of Things Journal}, 
+  title={Traffic Analysis Through Deep-Learning-Based Image Segmentation From UAV Streaming}, 
+  year={2023},
+  volume={10},
+  number={7},
+  pages={6059-6073},
+}
+
+
+## 📄 License
+The source code is free for research and education use only. Any comercial use should get formal permission first.
 
 ---
