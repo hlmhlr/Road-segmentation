@@ -116,9 +116,10 @@ Arguments:
 ## 🧪 Testing / Inference
 ```bash
 python test.py \
-    --path ./dataset \
+    --dataset_path ./dataset \
     --checkpoint_path ./checkpoints/best_model.pth \
-    --results_path ./outputs
+    --results_path ./outputs \
+    --csv_save_path ./outputs
 ```
 Arguments:
 
