@@ -8,12 +8,12 @@
 
 ## 🎯 Scope of This Repository
 
-This repository contains only the **RoI extraction stage** of the complete pipeline. Specifically, it includes the following two custom deep learning architectures:
+This repository contains only the **RoI extraction stage** of the complete pipeline. This includes the following two custom deep learning architectures:
 
 - **SegRExt-A**: Accuracy-optimized model
 - **SegRExt-F**: Speed-optimized (Fast) model
 
-Both models are tailored for semantic segmentation of road regions in drone-captured aerial images.
+Both models are tailored for semantic segmentation of road regions in drone-captured aerial images. This repository covers the details of the **SegRExt-F**: Speed-optimized (Fast) model wehreas **SegRExt-A** model details are given here. 
 
 ---
 
@@ -163,6 +163,50 @@ Predicted masks are binarized with a threshold of 0.5.
 The model is evaluated on test.py using ground-truth masks.
 
 The entire code supports CUDA if a GPU is available.
+
+
+## 🧪 Reproducible Results on Massachusetts Roads Dataset
+
+This repository includes evaluation for the **SegRExt-F model** on the **Massachusetts Roads Dataset** as presented in the associated paper. The following command reproduces the results shown in the table:
+
+### 🔁 Run Inference
+
+```bash
+python test.py \
+  --dataset_path MASSACHUSETTS_ROADS_DATASET_PATH/ \
+  --checkpoint_path ./checkpoints/checkpoint_model_mnetv3_mr_dataset.pth \
+  --results_path ./outputs \
+  --csv_save_path ./outputs
+```
+
+### ✅ Output (CLI)
+
+```
+Jaccard: 0.5285 - F1: 0.6840 - Recall: 0.6384 - Precision: 0.7488 - Acc: 0.9662
+```
+
+These results align with the official numbers reported in the paper for **SegRExt-F** model for the **Massachusetts Roads Dataset**.
+
+---
+
+## 📊 Comparison Table
+
+| Model              | Jcc   | DSC   | Pr    | Rc    | Acc   | FPS    |
+|--------------------|-------|-------|-------|-------|--------|--------|
+| UNet               | 52.66 | 67.99 | **84.90** | 58.45 | 97.56 | 6.25   |
+| ResUNet            | 46.86 | 62.48 | 84.65 | 51.68 | 97.23 | 6.33   |
+| DoubleUNet         | 55.63 | 70.61 | 83.90 | 62.34 | 97.64 | 3.18   |
+| UNet-VGG16         | 54.35 | 69.73 | 84.34 | 60.60 | 97.61 | 5.92   |
+| MKDCNet            | 51.07 | 67.07 | 73.96 | 62.25 | 96.41 | 74.77  |
+| UNet-VGG19         | 56.09 | 71.21 | 84.20 | 62.71 | **97.66** | 6.03 |
+| DeepLabv3+         | 27.56 | 42.54 | 33.89 | 62.00 | 92.83 | 8.70   |
+| UNet-ResNet50      | 48.32 | 64.10 | 81.43 | 54.54 | 97.18 | 6.65   |
+| **SegRExt-A**      | 56.82 | 71.78 | 76.95 | **68.29** | 97.53 | 6.06   |
+| **SegRExt-A-TTA**  | **57.50** | **72.27** | 78.76 | 68.03 | 97.60 | 1.80   |
+| **SegRExt-F**      | 52.85 | 68.40 | 74.88 | 63.84 | 96.62 | **113.57** |
+
+
+
 
 ## 📚 Citation
 Please cite our work if you use it for your research and find it useful.
