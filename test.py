@@ -173,6 +173,7 @@ if __name__ == "__main__":
         cv2.imwrite(os.path.join(args.results_path, f"{name}.png"), pred_y1)
 
 
+
     jaccard = metrics_score[0]/len(test_x)
     f1 = metrics_score[1]/len(test_x)
     recall = metrics_score[2]/len(test_x)
@@ -187,4 +188,4 @@ if __name__ == "__main__":
     print("Mean FPS: ", mean_fps)
     
     df = pd.DataFrame(SCORE, columns = ["Image Name", "Jaccard" , "F1", "Recall", "Precision", "Acc", "F2"])
-    df.to_csv(args.csv_save_path)
+    df.to_csv(os.path.join(args.csv_save_path, "output.csv") )
