@@ -73,7 +73,6 @@ Both models are tailored for semantic segmentation of road regions in drone-capt
 ```bash
 git clone https://github.com/hlmhlr/Road-segmentation.git
 cd road_segmentation
-pip install -r requirements.txt
 ```
 
 2. **Install dependencies**
