@@ -1,0 +1,7 @@
+# Create .gitignore
+echo -e "__pycache__/\n*.pyc\n*.pyo\n*.pyd\n*.DS_Store\n.env\n.venv\nenv/\nvenv/\n*.log\n*.pth\noutputs/\ncheckpoints/\nlogs/\n*.zip" > .gitignore
+
+# Add & commit
+git add .gitignore
+git commit -m "Add .gitignore"
+git push
